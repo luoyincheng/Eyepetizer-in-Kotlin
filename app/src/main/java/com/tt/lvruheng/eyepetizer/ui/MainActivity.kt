@@ -1,10 +1,10 @@
 package com.tt.lvruheng.eyepetizer.ui
 
 import android.graphics.Typeface
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun initFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState != null) {
             //异常情况
-            val mFragments: List<Fragment> = supportFragmentManager.fragments
+            val mFragments: List<androidx.fragment.app.Fragment> = supportFragmentManager.fragments
             for (item in mFragments) {
                 if (item is HomeFragment) {
                     homeFragment = item

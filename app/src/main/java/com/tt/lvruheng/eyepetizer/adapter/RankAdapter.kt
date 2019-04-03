@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Parcelable
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +21,7 @@ import com.tt.lvruheng.eyepetizer.utils.SPUtils
 /**
  * Created by lvruheng on 2017/7/7.
  */
-class RankAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBean>) : RecyclerView.Adapter<RankAdapter.RankViewHolder>() {
+class RankAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBean>) : androidx.recyclerview.widget.RecyclerView.Adapter<RankAdapter.RankViewHolder>() {
     var context: Context? = null;
     var list: ArrayList<HotBean.ItemListBean.DataBean>? = null
     var inflater: LayoutInflater? = null
@@ -91,7 +91,7 @@ class RankAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBea
     }
 
 
-    class RankViewHolder(itemView: View?, context: Context) : RecyclerView.ViewHolder(itemView) {
+    class RankViewHolder(itemView: View?, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var iv_photo: ImageView = itemView?.findViewById(R.id.iv_photo) as ImageView
         var tv_title: TextView = itemView?.findViewById(R.id.tv_title) as TextView
         var tv_time: TextView = itemView?.findViewById(R.id.tv_time) as TextView

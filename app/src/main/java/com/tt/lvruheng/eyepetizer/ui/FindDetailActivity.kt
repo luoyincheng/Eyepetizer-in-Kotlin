@@ -1,10 +1,10 @@
 package com.tt.lvruheng.eyepetizer.ui
 
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.gyf.barlibrary.ImmersionBar
 import com.tt.lvruheng.eyepetizer.R
 import com.tt.lvruheng.eyepetizer.adapter.RankAdapter
@@ -17,7 +17,7 @@ import java.util.regex.Pattern
 /**
  * Created by lvruheng on 2017/7/8.
  */
-class FindDetailActivity : AppCompatActivity(), FindDetailContract.View, SwipeRefreshLayout.OnRefreshListener {
+class FindDetailActivity : AppCompatActivity(), FindDetailContract.View, androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener {
 
     lateinit var mPresenter: FindDetailPresenter
     lateinit var mAdapter: RankAdapter
@@ -50,18 +50,18 @@ class FindDetailActivity : AppCompatActivity(), FindDetailContract.View, SwipeRe
         setContentView(R.layout.activity_find_detail)
         ImmersionBar.with(this).transparentBar().barAlpha(0.3f).fitsSystemWindows(true).init()
         setToolbar()
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mAdapter = RankAdapter(this, mList)
         recyclerView.adapter = mAdapter
         refreshLayout.setOnRefreshListener(this)
         mPresenter = FindDetailPresenter(this, this)
         mPresenter.requestData(name, "date")
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+        recyclerView.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView?, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                var layoutManager: LinearLayoutManager = recyclerView?.layoutManager as LinearLayoutManager
+                var layoutManager: androidx.recyclerview.widget.LinearLayoutManager = recyclerView?.layoutManager as androidx.recyclerview.widget.LinearLayoutManager
                 var lastPositon = layoutManager.findLastVisibleItemPosition()
-                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastPositon == mList.size - 1) {
+                if (newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE && lastPositon == mList.size - 1) {
                     if (data != null) {
                         mPresenter?.requesMoreData(mstart, name, "date")
                         mstart = mstart.plus(10)

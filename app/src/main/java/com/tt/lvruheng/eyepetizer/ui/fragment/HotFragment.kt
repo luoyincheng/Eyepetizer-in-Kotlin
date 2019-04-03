@@ -1,7 +1,7 @@
 package com.tt.lvruheng.eyepetizer.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.tt.lvruheng.eyepetizer.R
 import com.tt.lvruheng.eyepetizer.adapter.HotAdatpter
 import com.tt.lvruheng.eyepetizer.mvp.contract.HotContract
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.hot_fragment.*
  */
 class HotFragment : BaseFragment() {
     var mTabs = listOf<String>("周排行", "月排行", "总排行").toMutableList()
-    lateinit var mFragments: ArrayList<Fragment>
+    lateinit var mFragments: ArrayList<androidx.fragment.app.Fragment>
     val STRATEGY = arrayOf("weekly", "monthly", "historical")
     override fun getLayoutResources(): Int {
         return R.layout.hot_fragment
@@ -34,9 +34,9 @@ class HotFragment : BaseFragment() {
         allBundle.putString("strategy", STRATEGY[2])
         allFragment.arguments = allBundle
         mFragments = ArrayList()
-        mFragments.add(weekFragment as Fragment)
-        mFragments.add(monthFragment as Fragment)
-        mFragments.add(allFragment as Fragment)
+        mFragments.add(weekFragment as androidx.fragment.app.Fragment)
+        mFragments.add(monthFragment as androidx.fragment.app.Fragment)
+        mFragments.add(allFragment as androidx.fragment.app.Fragment)
         vp_content.adapter = HotAdatpter(fragmentManager, mFragments, mTabs)
         tabs.setupWithViewPager(vp_content)
     }

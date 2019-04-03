@@ -4,9 +4,9 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import com.gyf.barlibrary.ImmersionBar
 import com.tt.lvruheng.eyepetizer.R
@@ -47,7 +47,7 @@ class CacheActivity : AppCompatActivity() {
         ImmersionBar.with(this).transparentBar().barAlpha(0.3f).fitsSystemWindows(true).init()
         setToolbar()
         DataAsyncTask(mHandler, this).execute()
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mAdapter = DownloadAdapter(this, mList)
         mAdapter.setOnLongClickListener(object : DownloadAdapter.OnLongClickListener {
             override fun onLongClick(position: Int) {

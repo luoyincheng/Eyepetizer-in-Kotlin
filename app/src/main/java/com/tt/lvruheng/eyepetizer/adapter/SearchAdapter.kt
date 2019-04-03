@@ -2,7 +2,7 @@ package com.tt.lvruheng.eyepetizer.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import com.tt.lvruheng.eyepetizer.ui.ResultActivity
 /**
  * Created by lvruheng on 2017/7/9.
  */
-class SearchAdapter(context: Context, list: ArrayList<String>) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+class SearchAdapter(context: Context, list: ArrayList<String>) : androidx.recyclerview.widget.RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     var context: Context? = null;
     var list: ArrayList<String>? = null
     var inflater: LayoutInflater? = null
@@ -51,7 +51,7 @@ class SearchAdapter(context: Context, list: ArrayList<String>) : RecyclerView.Ad
     }
 
 
-    class SearchViewHolder(itemView: View?, context: Context) : RecyclerView.ViewHolder(itemView) {
+    class SearchViewHolder(itemView: View?, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var tv_title: TextView = itemView?.findViewById(R.id.tv_title) as TextView
         
     }

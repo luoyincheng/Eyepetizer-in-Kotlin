@@ -1,7 +1,7 @@
 package com.tt.lvruheng.eyepetizer.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.gyf.barlibrary.ImmersionBar
 import com.tt.lvruheng.eyepetizer.R
 import kotlinx.android.synthetic.main.activity_advise.*

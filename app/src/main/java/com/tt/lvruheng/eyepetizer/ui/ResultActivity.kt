@@ -1,10 +1,10 @@
 package com.tt.lvruheng.eyepetizer.ui
 
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import com.gyf.barlibrary.ImmersionBar
 import com.tt.lvruheng.eyepetizer.R
@@ -18,7 +18,7 @@ import kotlin.collections.ArrayList
 /**
  * Created by lvruheng on 2017/7/11.
  */
-class ResultActivity : AppCompatActivity(), ResultContract.View, SwipeRefreshLayout.OnRefreshListener {
+class ResultActivity : AppCompatActivity(), ResultContract.View, androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener {
     lateinit var keyWord: String
     lateinit var mPresenter: ResultPresenter
     lateinit var mAdapter: FeedAdapter
@@ -33,16 +33,16 @@ class ResultActivity : AppCompatActivity(), ResultContract.View, SwipeRefreshLay
         mPresenter = ResultPresenter(this, this)
         mPresenter.requestData(keyWord, start)
         setToolbar()
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mAdapter = FeedAdapter(this, mList)
         recyclerView.adapter = mAdapter
         refreshLayout.setOnRefreshListener(this)
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+        recyclerView.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView?, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                var layoutManager: LinearLayoutManager = recyclerView?.layoutManager as LinearLayoutManager
+                var layoutManager: androidx.recyclerview.widget.LinearLayoutManager = recyclerView?.layoutManager as androidx.recyclerview.widget.LinearLayoutManager
                 var lastPositon = layoutManager.findLastVisibleItemPosition()
-                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastPositon == mList.size - 1) {
+                if (newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE && lastPositon == mList.size - 1) {
                     start = start.plus(10)
                     mPresenter.requestData(keyWord, start)
                 }

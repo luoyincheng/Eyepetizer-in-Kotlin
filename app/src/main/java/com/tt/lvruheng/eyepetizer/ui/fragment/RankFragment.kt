@@ -1,6 +1,6 @@
 package com.tt.lvruheng.eyepetizer.ui.fragment
 
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import com.tt.lvruheng.eyepetizer.R
 import com.tt.lvruheng.eyepetizer.adapter.RankAdapter
@@ -22,7 +22,7 @@ class RankFragment : BaseFragment(), HotContract.View {
     }
 
     override fun initView() {
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         mAdapter = RankAdapter(context, mList)
         recyclerView.adapter = mAdapter
         if (arguments != null) {

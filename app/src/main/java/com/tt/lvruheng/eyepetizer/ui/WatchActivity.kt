@@ -4,8 +4,8 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.gyf.barlibrary.ImmersionBar
@@ -48,7 +48,7 @@ class WatchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_watch)
         setToolbar()
         DataAsyncTask(mHandler,this).execute()
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mAdapter = WatchAdapter(this, mList)
         recyclerView.adapter = mAdapter
     }

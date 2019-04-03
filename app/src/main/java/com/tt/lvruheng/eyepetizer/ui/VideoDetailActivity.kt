@@ -5,7 +5,7 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.tt.lvruheng.eyepetizer.R
 import com.tt.lvruheng.eyepetizer.mvp.model.bean.VideoBean
 import kotlinx.android.synthetic.main.activity_video_detail.*

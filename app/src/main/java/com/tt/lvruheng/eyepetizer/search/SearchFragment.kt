@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.search_fragment.*
 import android.widget.Toast
 import android.text.TextUtils
 import com.tt.lvruheng.eyepetizer.adapter.SearchAdapter
-import android.support.v7.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DefaultItemAnimator
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -79,7 +79,7 @@ class SearchFragment : DialogFragment(), CircularRevealAnim.AnimListener,
         //设置是否换行
         manager.flexWrap = FlexWrap.WRAP
         recyclerView.layoutManager = manager
-        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         recyclerView.adapter = mAdatper
     }
 

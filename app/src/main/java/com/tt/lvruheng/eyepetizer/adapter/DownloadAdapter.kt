@@ -5,7 +5,7 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Parcelable
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -27,29 +27,14 @@ import zlc.season.rxdownload2.RxDownload
  * Created by lvruheng on 2017/7/7.
  */
 class DownloadAdapter(context: Context, list: ArrayList<VideoBean>) : RecyclerView.Adapter<DownloadAdapter.DownloadViewHolder>() {
-    lateinit var mOnLongLisenter: OnLongClickListener
-    var context: Context? = null;
-    var list: ArrayList<VideoBean>? = null
-    var inflater: LayoutInflater? = null
-    var isDownload = false
-    var hasLoaded = false
-    lateinit var disposable: Disposable
 
-    init {
-        this.context = context
-        this.list = list
-        this.inflater = LayoutInflater.from(context)
-    }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DownloadViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): DownloadViewHolder {
         return DownloadViewHolder(inflater?.inflate(R.layout.item_download, parent, false), context!!)
     }
 
-    override fun getItemCount(): Int {
-        return list?.size ?: 0
-    }
-
-    override fun onBindViewHolder(holder: DownloadViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: DownloadViewHolder, position: Int) {
         var photoUrl: String? = list?.get(position)?.feed
         photoUrl?.let { ImageLoadUtils.display(context!!, holder?.iv_photo, it) }
         var title: String? = list?.get(position)?.title
@@ -100,8 +85,26 @@ class DownloadAdapter(context: Context, list: ArrayList<VideoBean>) : RecyclerVi
         holder?.itemView?.setOnLongClickListener {
             mOnLongLisenter.onLongClick(position)
             true
-        }
+        }    }
+
+    lateinit var mOnLongLisenter: OnLongClickListener
+    var context: Context? = null;
+    var list: ArrayList<VideoBean>? = null
+    var inflater: LayoutInflater? = null
+    var isDownload = false
+    var hasLoaded = false
+    lateinit var disposable: Disposable
+
+    init {
+        this.context = context
+        this.list = list
+        this.inflater = LayoutInflater.from(context)
     }
+
+    override fun getItemCount(): Int {
+        return list?.size ?: 0
+    }
+
 
     private fun getDownloadState(playUrl: String?, holder: DownloadViewHolder?) {
         disposable = RxDownload.getInstance(context).receiveDownloadStatus(playUrl)
@@ -131,8 +134,6 @@ class DownloadAdapter(context: Context, list: ArrayList<VideoBean>) : RecyclerVi
                         } else {
                             holder?.tv_detail?.text = "已暂停 / $percent%"
                         }
-
-
                     }
                 }
 
