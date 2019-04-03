@@ -28,8 +28,6 @@ import zlc.season.rxdownload2.RxDownload
  */
 class DownloadAdapter(context: Context, list: ArrayList<VideoBean>) : RecyclerView.Adapter<DownloadAdapter.DownloadViewHolder>() {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): DownloadViewHolder {
         return DownloadViewHolder(inflater?.inflate(R.layout.item_download, parent, false), context!!)
     }
@@ -147,7 +145,7 @@ class DownloadAdapter(context: Context, list: ArrayList<VideoBean>) : RecyclerVi
         })
     }
 
-    class DownloadViewHolder(itemView: View?, context: Context) : RecyclerView.ViewHolder(itemView) {
+    class DownloadViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder(itemView) {
         var iv_photo: ImageView = itemView?.findViewById(R.id.iv_photo) as ImageView
         var tv_title: TextView = itemView?.findViewById(R.id.tv_title) as TextView
         var tv_detail: TextView = itemView?.findViewById(R.id.tv_detail) as TextView

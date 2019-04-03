@@ -15,14 +15,14 @@ abstract class BaseFragment : androidx.fragment.app.Fragment() {
     var isFirst : Boolean = false
     var rootView :View? = null
     var isFragmentVisiable :Boolean = false
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if(rootView==null){
             rootView = inflater?.inflate(getLayoutResources(),container,false)
         }
         return  rootView
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
 

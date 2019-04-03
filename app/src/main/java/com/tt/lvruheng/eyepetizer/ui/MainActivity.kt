@@ -25,10 +25,10 @@ import android.view.WindowManager
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var homeFragment: HomeFragment? = null
-    var findFragment: FindFragment? = null
-    var hotFragemnt: HotFragment? = null
-    var mineFragment: MineFragment? = null
+    lateinit var homeFragment: HomeFragment
+    lateinit var findFragment: FindFragment
+    lateinit var hotFragemnt: HotFragment
+    lateinit var mineFragment: MineFragment
     var mExitTime: Long = 0
     var toast: Toast? = null
     lateinit var searchFragment: SearchFragment

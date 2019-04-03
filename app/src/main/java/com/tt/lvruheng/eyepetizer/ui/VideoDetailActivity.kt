@@ -241,7 +241,7 @@ class VideoDetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         if (isPlay && !isPause) {
             if (newConfig?.orientation == ActivityInfo.SCREEN_ORIENTATION_USER) {

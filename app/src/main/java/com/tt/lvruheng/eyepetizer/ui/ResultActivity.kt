@@ -18,7 +18,7 @@ import kotlin.collections.ArrayList
 /**
  * Created by lvruheng on 2017/7/11.
  */
-class ResultActivity : AppCompatActivity(), ResultContract.View, androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener {
+class ResultActivity : AppCompatActivity(), ResultContract.View, SwipeRefreshLayout.OnRefreshListener {
     lateinit var keyWord: String
     lateinit var mPresenter: ResultPresenter
     lateinit var mAdapter: FeedAdapter
@@ -33,16 +33,16 @@ class ResultActivity : AppCompatActivity(), ResultContract.View, androidx.swiper
         mPresenter = ResultPresenter(this, this)
         mPresenter.requestData(keyWord, start)
         setToolbar()
-        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this)
         mAdapter = FeedAdapter(this, mList)
         recyclerView.adapter = mAdapter
         refreshLayout.setOnRefreshListener(this)
-        recyclerView.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView?, newState: Int) {
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                var layoutManager: androidx.recyclerview.widget.LinearLayoutManager = recyclerView?.layoutManager as androidx.recyclerview.widget.LinearLayoutManager
+                var layoutManager: LinearLayoutManager = recyclerView?.layoutManager as LinearLayoutManager
                 var lastPositon = layoutManager.findLastVisibleItemPosition()
-                if (newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE && lastPositon == mList.size - 1) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastPositon == mList.size - 1) {
                     start = start.plus(10)
                     mPresenter.requestData(keyWord, start)
                 }

@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat
  * Created by lvruheng on 2017/7/7.
  */
 class FeedAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBean>) : androidx.recyclerview.widget.RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
+
     var context: Context? = null;
     var list: ArrayList<HotBean.ItemListBean.DataBean>? = null
     var inflater: LayoutInflater? = null
@@ -33,7 +34,7 @@ class FeedAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBea
         this.inflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): FeedViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
         return FeedViewHolder(inflater?.inflate(R.layout.item_feed_result, parent, false), context!!)
     }
 
@@ -41,7 +42,7 @@ class FeedAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBea
         return list?.size ?: 0
     }
 
-    override fun onBindViewHolder(holder: FeedViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         var photoUrl : String? = list?.get(position)?.cover?.feed
         photoUrl?.let { ImageLoadUtils.display(context!!,holder?.iv_photo, it) }
         var title : String? = list?.get(position)?.title
@@ -101,7 +102,6 @@ class FeedAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBea
         var tv_time: TextView = itemView?.findViewById(R.id.tv_detail) as TextView
         init {
             tv_title?.typeface = Typeface.createFromAsset(context?.assets, "fonts/FZLanTingHeiS-L-GB-Regular.TTF")
-
         }
     }
 }

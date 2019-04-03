@@ -33,15 +33,15 @@ class WatchAdapter(context: Context, list: ArrayList<VideoBean>) : androidx.recy
         this.inflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): WatchViewHolder {
-        return WatchViewHolder(inflater?.inflate(R.layout.item_feed_result, parent, false), context!!)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WatchViewHolder {
+        return WatchViewHolder(inflater?.inflate(R.layout.item_feed_result, parent, false)!!, context!!)
     }
 
     override fun getItemCount(): Int {
         return list?.size ?: 0
     }
 
-    override fun onBindViewHolder(holder: WatchViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: WatchViewHolder, position: Int) {
         var photoUrl : String? = list?.get(position)?.feed
         photoUrl?.let { ImageLoadUtils.display(context!!,holder?.iv_photo, it) }
         var title : String? = list?.get(position)?.title
@@ -95,7 +95,7 @@ class WatchAdapter(context: Context, list: ArrayList<VideoBean>) : androidx.recy
     }
 
 
-    class WatchViewHolder(itemView: View?, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class WatchViewHolder(itemView: View, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var iv_photo: ImageView = itemView?.findViewById(R.id.iv_photo) as ImageView
         var tv_title: TextView = itemView?.findViewById(R.id.tv_title) as TextView
         var tv_time: TextView = itemView?.findViewById(R.id.tv_detail) as TextView

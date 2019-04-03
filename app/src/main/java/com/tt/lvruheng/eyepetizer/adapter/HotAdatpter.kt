@@ -8,7 +8,7 @@ import android.view.View
 /**
  * Created by lvruheng on 2017/7/6.
  */
-class HotAdatpter(fm: androidx.fragment.app.FragmentManager, list: ArrayList<androidx.fragment.app.Fragment>, titles : MutableList<String>) : androidx.fragment.app.FragmentPagerAdapter(fm) {
+class HotAdatpter(fm: FragmentManager?, list: ArrayList<androidx.fragment.app.Fragment>, titles : MutableList<String>) : FragmentPagerAdapter(fm) {
     var mFm : androidx.fragment.app.FragmentManager = fm!!
     var mList : ArrayList<androidx.fragment.app.Fragment> = list
     var mTitles : MutableList<String> = titles

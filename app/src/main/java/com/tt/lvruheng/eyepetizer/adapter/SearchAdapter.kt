@@ -27,11 +27,11 @@ class SearchAdapter(context: Context, list: ArrayList<String>) : androidx.recycl
         this.inflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SearchViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         return SearchViewHolder(inflater?.inflate(R.layout.item_search, parent, false), context!!)
     }
 
-    override fun onBindViewHolder(holder: SearchViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         holder?.tv_title?.text = list!![position]
         val params = holder?.tv_title?.layoutParams
         if (params is FlexboxLayoutManager.LayoutParams) {
