@@ -29,7 +29,7 @@ import zlc.season.rxdownload2.RxDownload
 class DownloadAdapter(context: Context, list: ArrayList<VideoBean>) : RecyclerView.Adapter<DownloadAdapter.DownloadViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): DownloadViewHolder {
-        return DownloadViewHolder(inflater?.inflate(R.layout.item_download, parent, false), context!!)
+        return DownloadViewHolder(inflater?.inflate(R.layout.item_download, parent, false)!!, context!!)
     }
 
     override fun onBindViewHolder(holder: DownloadViewHolder, position: Int) {

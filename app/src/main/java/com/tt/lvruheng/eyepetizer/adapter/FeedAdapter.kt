@@ -35,7 +35,7 @@ class FeedAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBea
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        return FeedViewHolder(inflater?.inflate(R.layout.item_feed_result, parent, false), context!!)
+        return FeedViewHolder(inflater?.inflate(R.layout.item_feed_result, parent, false)!!, context!!)
     }
 
     override fun getItemCount(): Int {
@@ -96,7 +96,7 @@ class FeedAdapter(context: Context, list: ArrayList<HotBean.ItemListBean.DataBea
     }
 
 
-    class FeedViewHolder(itemView: View?, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class FeedViewHolder(itemView: View, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var iv_photo: ImageView = itemView?.findViewById(R.id.iv_photo) as ImageView
         var tv_title: TextView = itemView?.findViewById(R.id.tv_title) as TextView
         var tv_time: TextView = itemView?.findViewById(R.id.tv_detail) as TextView

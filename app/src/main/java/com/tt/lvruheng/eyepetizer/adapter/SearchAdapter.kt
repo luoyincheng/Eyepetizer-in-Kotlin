@@ -28,7 +28,7 @@ class SearchAdapter(context: Context, list: ArrayList<String>) : androidx.recycl
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
-        return SearchViewHolder(inflater?.inflate(R.layout.item_search, parent, false), context!!)
+        return SearchViewHolder(inflater?.inflate(R.layout.item_search, parent, false)!!, context!!)
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
@@ -51,7 +51,7 @@ class SearchAdapter(context: Context, list: ArrayList<String>) : androidx.recycl
     }
 
 
-    class SearchViewHolder(itemView: View?, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class SearchViewHolder(itemView: View, context: Context) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         var tv_title: TextView = itemView?.findViewById(R.id.tv_title) as TextView
         
     }
