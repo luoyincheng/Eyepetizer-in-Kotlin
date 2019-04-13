@@ -31,6 +31,7 @@ class RetrofitClient private constructor(context: Context,baseUrl:String){
     var retrofit : Retrofit? = null
     val DEFAULT_TIMEOUT : Long = 20
     val url = baseUrl
+
     init {
         //缓存地址
         if (httpCacheDirectory == null) {
